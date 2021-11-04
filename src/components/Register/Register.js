@@ -1,5 +1,4 @@
 import React from 'react';
-// import './SignIn.css';
 
 class Register extends React.Component {
 	constructor(props) {
@@ -26,7 +25,6 @@ class Register extends React.Component {
 	onSubmitSignIn = () => {
 		fetch('https://murmuring-crag-32316.herokuapp.com/register', {
 			method: 'post',
-			
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
 				email: this.state.email,
@@ -35,7 +33,7 @@ class Register extends React.Component {
 			})
 		})
 			.then(response => response.json())
-			.then(user=> {
+			.then(user => {
 				if(user.id) {
 					this.props.loadUser(user)
 					this.props.onRouteChange('home');
@@ -44,7 +42,6 @@ class Register extends React.Component {
 	}
 
 	render() {
-		const { onRouteChange } = this.props;
 		return (
 			<article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
 				<main className="pa4 black-80">
